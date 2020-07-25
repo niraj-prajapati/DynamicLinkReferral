@@ -1,5 +1,6 @@
 package com.niraj.dynamiclinkreferral.base
 
+import android.app.ProgressDialog
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
@@ -9,6 +10,7 @@ import android.os.Bundle
 import android.provider.Settings
 import android.view.Gravity
 import android.widget.Toast
+import androidx.annotation.VisibleForTesting
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
@@ -158,5 +160,27 @@ open class BaseActivity : AppCompatActivity() {
             e.printStackTrace()
         }
         return version
+    }
+
+    @VisibleForTesting
+    val progressDialog by lazy {
+        ProgressDialog(this)
+    }
+
+    fun showProgressDialog() {
+        progressDialog.setMessage("Loading...")
+        progressDialog.isIndeterminate = true
+        progressDialog.show()
+    }
+
+    fun hideProgressDialog() {
+        if (progressDialog.isShowing) {
+            progressDialog.dismiss()
+        }
+    }
+
+    public override fun onStop() {
+        super.onStop()
+        hideProgressDialog()
     }
 }
