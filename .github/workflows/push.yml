@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - '*'
-#      - '!master'
+      - '!master'
 
 jobs:
   build:
@@ -24,7 +24,8 @@ jobs:
         with:
           java-version: 1.8
 
-      - name: Decode google-services.json
+      - name: Prepare google-services.json
+        id: prepareGoogleServicesJson
         env:
           FIREBASE_CONFIG: ${{ secrets.FIREBASE_CONFIG }}
         run: echo $FIREBASE_CONFIG > app/google-services.json
