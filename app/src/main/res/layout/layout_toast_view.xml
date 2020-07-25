@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="bottom|center_horizontal"
+    android:layout_marginStart="@dimen/_44sdp"
+    android:layout_marginEnd="@dimen/_44sdp"
+    android:layout_marginBottom="@dimen/_30sdp"
+    app:cardBackgroundColor="@color/colorToastBg"
+    app:cardElevation="@dimen/_1sdp">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txtMessage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_8sdp"
+        android:gravity="center"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/_10ssp"
+        tools:text="@tools:sample/lorem" />
+</androidx.cardview.widget.CardView>
